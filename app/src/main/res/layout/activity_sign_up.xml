@@ -15,15 +15,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
 
             <ImageView
                 android:layout_width="444dp"
                 android:layout_height="360dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="750dp"
+                android:layout_marginTop="600dp"
                 android:src="@drawable/reg"></ImageView>
 
             <TextView
@@ -39,12 +39,9 @@
                 android:layout_width="318dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:hint="Full Name"
                 android:layout_marginTop="3dp"
-                android:background="#FFFFFF" />
-
-
-
+                android:background="#FFFFFF"
+                android:hint="Full Name" />
 
 
             <TextView
@@ -61,8 +58,8 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
-                android:hint="Address"
-                android:background="#FFFFFF" />
+                android:background="#FFFFFF"
+                android:hint="Address" />
 
             <TextView
                 android:id="@+id/txt_Email"
@@ -80,7 +77,7 @@
                 android:layout_marginTop="3dp"
                 android:background="#FFFFFF"
                 android:hint="Enter your email address"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
 
             <TextView
                 android:id="@+id/txt_num"
@@ -96,8 +93,8 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
-                android:hint="Phone Number"
-                android:background="#FFFFFF" />
+                android:background="#FFFFFF"
+                android:hint="Phone Number" />
 
 
             <TextView
@@ -114,8 +111,8 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
-                android:hint="National Identity Card"
-                android:background="#FFFFFF" />
+                android:background="#FFFFFF"
+                android:hint="National Identity Card" />
 
 
             <TextView
@@ -184,7 +181,6 @@
                 android:background="#FFFFFF" />
 
 
-
             <TextView
                 android:id="@+id/txt_PNO"
                 android:layout_width="277dp"
@@ -235,17 +231,15 @@
                 android:background="#FFFFFF" />
 
 
-
             <Button
                 android:id="@+id/button"
                 android:layout_width="313dp"
                 android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:text="Sign Up"
                 android:textColor="#000000"
-                app:backgroundTint="#E1B20C"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"/>
-
+                app:backgroundTint="#E1B20C" />
 
 
         </LinearLayout>
