@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="800dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
                 android:layout_width="444dp"
                 android:layout_height="360dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="600dp"
+                android:layout_marginTop="750dp"
                 android:src="@drawable/reg"></ImageView>
 
             <TextView
@@ -31,7 +31,7 @@
                 android:layout_width="115dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="60dp"
                 android:text="Full Name"
                 android:textSize="20sp" />
 
@@ -39,9 +39,9 @@
                 android:layout_width="318dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="10dp"
                 android:background="#FFFFFF"
-                android:hint="Full Name" />
+                android:hint="Enter Your Full Name" />
 
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
                 android:background="#FFFFFF"
-                android:hint="Address" />
+                android:hint="Enter Your Address" />
 
             <TextView
                 android:id="@+id/txt_Email"
@@ -94,7 +94,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
                 android:background="#FFFFFF"
-                android:hint="Phone Number" />
+                android:hint="eg : +94787679087" />
 
 
             <TextView
@@ -112,7 +112,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
                 android:background="#FFFFFF"
-                android:hint="National Identity Card" />
+                android:hint="Enter Your National Identity Card" />
 
 
             <TextView
@@ -129,7 +129,8 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
-                android:background="#FFFFFF" />
+                android:background="#FFFFFF"
+                android:hint="Enter Your Vhicle Registration Number"/>
 
 
             <TextView
@@ -146,7 +147,8 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
-                android:background="#FFFFFF" />
+                android:background="#FFFFFF"
+                android:hint="Enter Your Insurence Hotline"/>
 
             <TextView
                 android:id="@+id/txt_IENO"
@@ -162,7 +164,8 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
-                android:background="#FFFFFF" />
+                android:background="#FFFFFF"
+                android:hint="Enter Your Insure Expire Date"/>
 
             <TextView
                 android:id="@+id/txt_T1"
@@ -178,7 +181,8 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
-                android:background="#FFFFFF" />
+                android:background="#FFFFFF"
+                android:hint="Enter Your First Trustee name "/>
 
 
             <TextView
@@ -187,7 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"
-                android:text="Phone Number"
+                android:text="Trustee 1st Phone Number"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputEditText
@@ -195,7 +199,8 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="3dp"
-                android:background="#FFFFFF" />
+                android:background="#FFFFFF"
+                android:hint="Enter Your First Trustee phone number "/>
 
 
             <TextView
@@ -241,6 +246,34 @@
                 android:textColor="#000000"
                 app:backgroundTint="#E1B20C" />
 
+            <TextView
+                android:id="@+id/account"
+                android:layout_width="277dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:text="Already Have An Account?"
+                android:textColor="#000000"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/haveanaccount"
+                android:layout_width="100dp"
+                android:layout_height="41dp"
+
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="-30dp"
+                android:background="#00000000"
+                android:elevation="0dp"
+                android:text="LogIn"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.852"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.907" />
+
 
         </LinearLayout>
 
@@ -249,3 +282,4 @@
 
 
 </LinearLayout>
+

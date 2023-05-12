@@ -22,6 +22,16 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
 
+        Button myButton2 = findViewById(R.id.haveanaccount);
+        myButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this,Dashboard.class);
+                startActivity(intent);
+            }
+        });
+
+
 
             }
 
