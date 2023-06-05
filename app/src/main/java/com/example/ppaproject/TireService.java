@@ -24,6 +24,15 @@ public class TireService extends AppCompatActivity {
             }
         });
 
+        ImageButton myButton3 = findViewById(R.id.findBt);
+        myButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TireService.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }

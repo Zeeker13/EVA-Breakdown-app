@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ppa project</string>
     <string name="title_activity_google_api">googleApi</string>
+    <string name="title_activity_google_maps">GoogleMapsActivity</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_gg">gg</string>
 </resources>
