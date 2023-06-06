@@ -67,18 +67,14 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void showNearbyHospitals() {
-        // Code to show nearby hospitals
-        // You can use the Google Places API or any other method to fetch and display nearby hospitals
-        // For simplicity, let's assume you have a MapsActivity class to display the map with hospitals
         Intent intent = new Intent(Home.this, MapsActivity.class);
+        intent.putExtra("placeType", "hospital");
         startActivity(intent);
     }
 
     private void showNearbyGarage() {
-        // Code to show nearby garages
-        // You can use the Google Places API or any other method to fetch and display nearby garages
-        // For simplicity, let's assume you have a MapsActivity class to display the map with garages
         Intent intent = new Intent(Home.this, MapsActivity.class);
+        intent.putExtra("placeType", "car_repair");
         startActivity(intent);
     }
 
@@ -92,9 +88,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    phoneNumber = dataSnapshot.child("firstTrusteePhoneNumber").getValue(String.class);
-
-                    // Call the family member using the retrieved phone number
+                    phoneNumber = dataSnapshot.child("firstTrusteePhoneNumber:").getValue(String.class);
                     makeEmergencyCall();
                 } else {
                     Toast.makeText(Home.this, "Family member not found", Toast.LENGTH_SHORT).show();
@@ -110,10 +104,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
     private void makeEmergencyCall() {
         if (ContextCompat.checkSelfPermission(Home.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-            // Permission already granted, make the emergency call
             initiateCall();
         } else {
-            // Request the CALL_PHONE permission
             ActivityCompat.requestPermissions(Home.this, new String[]{Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST_CODE);
         }
     }
@@ -123,7 +115,6 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == CALL_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, make the emergency call
                 initiateCall();
             } else {
                 Toast.makeText(Home.this, "Permission denied", Toast.LENGTH_SHORT).show();

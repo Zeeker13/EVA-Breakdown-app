@@ -1,8 +1,6 @@
 package com.example.ppaproject;
+
 import android.Manifest;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentActivity;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -10,6 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
+
 import com.example.ppaproject.databinding.ActivityMapsBinding;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -31,7 +34,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FusedLocationProviderClient fusedLocationProviderClient;
     private static final int Request_code = 101;
     private double lat, lng;
-    ImageButton atm, garage, hospital, rest,gas;
+    private ImageButton atm, garage, hospital, rest, gas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +46,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         garage = findViewById(R.id.garage);
         hospital = findViewById(R.id.hospital);
         rest = findViewById(R.id.rest);
-        gas=findViewById(R.id.gas);
+        gas = findViewById(R.id.gas);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this.getApplicationContext());
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         atm.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +59,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 showNearbyPlaces("atm");
             }
         });
-
 
         gas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,71 +96,56 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void getCurrentLocation() {
-        if (ActivityCompat.checkSelfPermission(
-                this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, Request_code);
             return;
         }
 
-        LocationRequest locationRequest = LocationRequest.create();
-        locationRequest.setInterval(60000);
+        LocationRequest locationRequest = new LocationRequest();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setFastestInterval(5000);
+        locationRequest.setInterval(5000);
+        locationRequest.setFastestInterval(2000);
 
-        LocationCallback locationCallback = new LocationCallback() {
+        fusedLocationProviderClient.requestLocationUpdates(locationRequest, new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
-                if (locationResult == null) {
-                    Toast.makeText(getApplicationContext(), "Current location is null", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                for (Location location : locationResult.getLocations()) {
-                    if (location != null) {
-                        Toast.makeText(getApplicationContext(), "Current location is " + location.getLongitude(), Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-        };
-
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, null);
-        fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-                if (location != null) {
-                    lat = location.getLatitude();
-                    lng = location.getLongitude();
+                super.onLocationResult(locationResult);
+                fusedLocationProviderClient.removeLocationUpdates(this);
+                if (locationResult != null && locationResult.getLocations().size() > 0) {
+                    int latestLocationIndex = locationResult.getLocations().size() - 1;
+                    lat = locationResult.getLocations().get(latestLocationIndex).getLatitude();
+                    lng = locationResult.getLocations().get(latestLocationIndex).getLongitude();
                     LatLng latLng = new LatLng(lat, lng);
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("Current location"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+                    mMap.addMarker(new MarkerOptions().position(latLng).title("Current Location"));
                 }
             }
-        });
-    }
-
-    @SuppressLint("MissingSuperCall")
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == Request_code && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            getCurrentLocation();
-        }
+        }, getMainLooper());
     }
 
     private void showNearbyPlaces(String placeType) {
-        StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-        stringBuilder.append("location=" + lat + "," + lng);
-        stringBuilder.append("&radius=5000");
-        stringBuilder.append("&type=" + placeType);
-        stringBuilder.append("&key=" + getResources().getString(R.string.google_maps_key));
+        StringBuilder sb = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        sb.append("location=").append(lat).append(",").append(lng);
+        sb.append("&radius=5000");
+        sb.append("&types=").append(placeType);
+        sb.append("&sensor=true");
+        sb.append("&key=" + getResources().getString(R.string.google_maps_key));
 
-        String url = stringBuilder.toString();
-        Object dataFetch[] = new Object[2];
-        dataFetch[0] = mMap;
-        dataFetch[1] = url;
+        MapsAPI.getData(MapsActivity.this, sb.toString(), new MapsAPI.VolleyResponseListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(String response) {
+                mMap.clear();
+                MapsAPI.currentLocation(mMap, lat, lng, "Current Location");
+                MapsAPI.showNearbyPlaces(response, mMap);
+            }
 
-        FetchData fetchData = new FetchData();
-        fetchData.execute(dataFetch);
+            @Override
+            public void onError(String message) {
+                Toast.makeText(getApplicationContext(), "Error: " + message, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
