@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/menu_home">
+
+
+    <fragment
+        android:id="@+id/menu_account"
+        android:name="com.example.ppaproject.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account"
+        />
+
+    <fragment
+        android:id="@+id/menu_logout"
+        android:name="com.example.ppaproject.LogoutFragment"
+        android:label="fragment_logout"
+        tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/menu_home"
+        android:name="com.example.ppaproject.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+
+</navigation>
+
+

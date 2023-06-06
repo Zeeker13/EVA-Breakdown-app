@@ -4,4 +4,16 @@
     <string name="title_activity_google_maps">GoogleMapsActivity</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_gg">gg</string>
+
+
+    <string name="account">account</string>
+    <string name="home">home</string>
+    <string name="logout">logout</string>
+
+    <string name="hello_blank_fragment"></string>
+
+    <string name="emergency_button_description">Emergency Button</string>
+
+
 </resources>
+

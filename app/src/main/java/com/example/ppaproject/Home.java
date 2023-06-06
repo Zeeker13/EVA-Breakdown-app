@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
 
 import android.Manifest;
 import android.content.Intent;
@@ -20,6 +22,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import androidx.core.view.GravityCompat;
+import androidx.navigation.NavController;
+
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
+
 public class Home extends AppCompatActivity implements View.OnClickListener {
 
     private ImageButton healthButton;
@@ -28,7 +36,6 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     private ImageButton emergencyButton;
 
     private DatabaseReference familyMemberRef; // Firebase database reference for family members
-
     private static final int CALL_PERMISSION_REQUEST_CODE = 1;
     private String phoneNumber;
 
@@ -36,6 +43,20 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        findViewById(R.id.navi2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+        NavigationView navigationView = findViewById(R.id.navigationView);
+        navigationView.setItemIconTintList(null);
+
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
         // Initialize the Firebase database reference
         familyMemberRef = FirebaseDatabase.getInstance().getReference().child("family_members");
@@ -88,7 +109,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    phoneNumber = dataSnapshot.child("firstTrusteePhoneNumber:").getValue(String.class);
+                    phoneNumber = dataSnapshot.child("firstTrusteePhoneNumber").getValue(String.class);
                     makeEmergencyCall();
                 } else {
                     Toast.makeText(Home.this, "Family member not found", Toast.LENGTH_SHORT).show();
