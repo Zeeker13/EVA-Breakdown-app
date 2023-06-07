@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "853121660464",
+    "project_id": "ppa-eva",
+    "storage_bucket": "ppa-eva.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853121660464:android:9022c9993cda08745a1ff5",
+        "android_client_info": {
+          "package_name": "com.example.ppaproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853121660464-ef8ptte0dr0t0psdo023pvkaijidmkqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN2GVbDNTipFF3m9f0Dwmok2OxQCgJ0Qg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853121660464-ef8ptte0dr0t0psdo023pvkaijidmkqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
