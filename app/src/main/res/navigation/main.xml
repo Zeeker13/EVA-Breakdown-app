@@ -9,19 +9,19 @@
     <fragment
         android:id="@+id/menu_account"
         android:name="com.example.ppaproject.AccountFragment"
-        android:label="fragment_account"
+        android:label="account"
         tools:layout="@layout/fragment_account"
         />
 
     <fragment
         android:id="@+id/menu_logout"
         android:name="com.example.ppaproject.LogoutFragment"
-        android:label="fragment_logout"
+        android:label="logout"
         tools:layout="@layout/fragment_logout" />
     <fragment
         android:id="@+id/menu_home"
         android:name="com.example.ppaproject.HomeFragment"
-        android:label="fragment_home"
+        android:label="home"
         tools:layout="@layout/fragment_home" />
 
 

@@ -1,16 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountFragment"
-    android:background="@color/white">
+    android:background="#FFFFFF"
+    tools:context=".AccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:fillViewport="true">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/profileImageView"
+                    android:layout_width="2400dp"
+                    android:layout_height="1700dp"
+                    android:src="@drawable/profiledetail"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/emailTextView"
+                    android:layout_width="221dp"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="250dp"
+
+                    android:textColor="#000000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.136"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/profileImageView"
+                    app:layout_constraintVertical_bias="0.575" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName3"
+                    android:layout_width="229dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Full Name"
+                    android:inputType="textPersonName"
+                    android:textColor="#5C5C5C"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.142"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profileImageView"
+                    app:layout_constraintVertical_bias="0.107" />
+
+                <EditText
+                    android:id="@+id/editTextAddress"
+                    android:layout_width="229dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Address"
+                    android:inputType="textPersonName"
+                    android:textColor="#5C5C5C"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.142"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profileImageView"
+                    app:layout_constraintVertical_bias="0.152" />
+
+                <EditText
+                    android:id="@+id/editTextvehiclereg"
+                    android:layout_width="229dp"
+                    android:layout_height="32dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Vehicle Reg"
+                    android:inputType="textPersonName"
+                    android:textColor="#5C5C5C"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.142"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profileImageView"
+                    app:layout_constraintVertical_bias="0.236" />
+
+                <EditText
+                    android:id="@+id/editTextvehiclins"
+                    android:layout_width="172dp"
+                    android:layout_height="33dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Vehicle Reg"
+                    android:inputType="textPersonName"
+                    android:textColor="#5C5C5C"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.108"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profileImageView"
+                    app:layout_constraintVertical_bias="0.282" />
+
+                <EditText
+                    android:id="@+id/editTextvehiclehot"
+                    android:layout_width="189dp"
+                    android:layout_height="31dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Vehicle Reg"
+                    android:inputType="textPersonName"
+                    android:textColor="#5C5C5C"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.912"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profileImageView"
+                    app:layout_constraintVertical_bias="0.282" />
+
+
+                <EditText
+                    android:id="@+id/editTexttrustn"
+                    android:layout_width="189dp"
+                    android:layout_height="31dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Trustee name"
+                    android:inputType="textPersonName"
+                    android:textColor="#5C5C5C"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.117"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/profileImageView"
+                    app:layout_constraintVertical_bias="0.374" />
+
+                <EditText
+                    android:id="@+id/editTexttrustpn"
+                    android:layout_width="235dp"
+                    android:layout_height="31dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:hint="Phone number"
+                    android:inputType="textPersonName"
+                    android:textColor="#5C5C5C"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.147"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTexttrustn"
+                    app:layout_constraintVertical_bias="0.037" />
+
+                <Button
+                    android:id="@+id/updateButton"
+                    android:layout_width="223dp"
+                    android:layout_height="54dp"
+                    android:text="Update"
+                    app:backgroundTint="#000000"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.801" />
+
+                <Button
+                    android:id="@+id/forget"
+                    android:layout_width="241dp"
+                    android:layout_height="43dp"
+                    android:text="Change Password"
+                    app:backgroundTint="#838383"
+                    app:layout_constraintBottom_toTopOf="@+id/updateButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.152"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/emailTextView"
+                    app:layout_constraintVertical_bias="0.089" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </FrameLayout>
