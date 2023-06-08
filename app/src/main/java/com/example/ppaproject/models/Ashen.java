@@ -14,9 +14,6 @@ public class Ashen {
         private String firstTrusteeName;
         private String firstTrusteePhoneNumber;
 
-        public Ashen(String email, String password, String phoneNumber) {
-            // Default constructor required for calls to DataSnapshot.getValue(User.class)
-        }
 
         public Ashen(String email, String password, String phoneNumber, String fullName, String address, String nic, String vehicleRegNumber, String insuranceHotline, String insuranceExpiryDate, String firstTrusteeName, String firstTrusteePhoneNumber) {
             this.email = email;
