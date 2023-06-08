@@ -29,7 +29,8 @@ public class SignUp extends AppCompatActivity {
     private EditText mNationalIDEditText;
     private EditText mVehicleRegEditText;
     private EditText mInsuranceHotlineEditText;
-    private EditText mInsuranceExpDateEditText;
+    private EditText mInsuranceNumberEditText;
+
     private EditText mFirstTrusteeNameEditText;
     private EditText mFirstTrusteePhoneEditText;
 
@@ -65,7 +66,7 @@ public class SignUp extends AppCompatActivity {
         mNationalIDEditText = findViewById(R.id.txt_nic);
         mVehicleRegEditText = findViewById(R.id.txt_VN);
         mInsuranceHotlineEditText = findViewById(R.id.txt_INO);
-        mInsuranceExpDateEditText = findViewById(R.id.txt_IENO);
+        mInsuranceNumberEditText = findViewById(R.id.txt_IENO);
         mFirstTrusteeNameEditText = findViewById(R.id.txt_T1);
         mFirstTrusteePhoneEditText = findViewById(R.id.txt_PNO);
 
@@ -83,7 +84,7 @@ public class SignUp extends AppCompatActivity {
                 String nationalID = mNationalIDEditText.getText().toString().trim();
                 String vehicleReg = mVehicleRegEditText.getText().toString().trim();
                 String insuranceHotline = mInsuranceHotlineEditText.getText().toString().trim();
-                String insuranceExpDate = mInsuranceExpDateEditText.getText().toString().trim();
+                String insuranceNumber = mInsuranceNumberEditText.getText().toString().trim();
                 String firstTrusteeName = mFirstTrusteeNameEditText.getText().toString().trim();
                 String firstTrusteePhone = mFirstTrusteePhoneEditText.getText().toString().trim();
 
@@ -99,7 +100,7 @@ public class SignUp extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        Ashen ashen = new Ashen(email,password, fullName, address, phoneNumber, nationalID, vehicleReg, insuranceHotline, insuranceExpDate, firstTrusteeName, firstTrusteePhone);
+                                        Ashen ashen = new Ashen(email,password, fullName, address, phoneNumber, nationalID, vehicleReg, insuranceHotline, insuranceNumber, firstTrusteeName, firstTrusteePhone);
                                         String userID = mAuth.getCurrentUser().getUid();
                                         mDatabase.child("users").child(userID).setValue(ashen);
 
@@ -117,5 +118,6 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
+
 }
 

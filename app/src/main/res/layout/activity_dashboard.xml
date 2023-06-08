@@ -69,6 +69,7 @@
             android:inputType="textEmailAddress"
             tools:layout_editor_absoluteX="41dp"
             tools:layout_editor_absoluteY="538dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

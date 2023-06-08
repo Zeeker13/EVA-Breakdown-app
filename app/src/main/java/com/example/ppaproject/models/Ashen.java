@@ -10,7 +10,7 @@ public class Ashen {
         private String nic;
         private String vehicleRegNumber;
         private String insuranceHotline;
-        private String insuranceExpiryDate;
+        private String insuranceNumber;
         private String firstTrusteeName;
         private String firstTrusteePhoneNumber;
 
@@ -27,7 +27,7 @@ public class Ashen {
             this.nic = nic;
             this.vehicleRegNumber = vehicleRegNumber;
             this.insuranceHotline = insuranceHotline;
-            this.insuranceExpiryDate = insuranceExpiryDate;
+            this.insuranceNumber = insuranceExpiryDate;
             this.firstTrusteeName = firstTrusteeName;
             this.firstTrusteePhoneNumber = firstTrusteePhoneNumber;
         }
@@ -97,11 +97,11 @@ public class Ashen {
         }
 
         public String getInsuranceExpiryDate() {
-            return insuranceExpiryDate;
+            return insuranceNumber;
         }
 
         public void setInsuranceExpiryDate(String insuranceExpiryDate) {
-            this.insuranceExpiryDate = insuranceExpiryDate;
+            this.insuranceNumber = insuranceExpiryDate;
         }
 
         public String getFirstTrusteeName() {

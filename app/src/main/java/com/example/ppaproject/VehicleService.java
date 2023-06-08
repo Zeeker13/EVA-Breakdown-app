@@ -26,5 +26,23 @@ public class VehicleService extends AppCompatActivity {
             }
         });
 
+        ImageButton myButton3 = findViewById(R.id.garagebtn);
+        myButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VehicleService.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton myButton4 = findViewById(R.id.imageButongas);
+        myButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VehicleService.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

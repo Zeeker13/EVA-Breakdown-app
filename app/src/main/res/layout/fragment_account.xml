@@ -30,7 +30,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/emailTextView"
@@ -44,7 +44,7 @@
                     app:layout_constraintHorizontal_bias="0.136"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/profileImageView"
-                    app:layout_constraintVertical_bias="0.575" />
+                    app:layout_constraintVertical_bias="0.602" />
 
                 <EditText
                     android:id="@+id/editTextTextPersonName3"
@@ -151,8 +151,9 @@
 
                 <EditText
                     android:id="@+id/editTexttrustpn"
-                    android:layout_width="235dp"
-                    android:layout_height="31dp"
+                    android:layout_width="232dp"
+                    android:layout_height="42dp"
+
                     android:background="@android:color/transparent"
                     android:ems="10"
                     android:hint="Phone number"
@@ -180,16 +181,32 @@
 
                 <Button
                     android:id="@+id/forget"
-                    android:layout_width="241dp"
-                    android:layout_height="43dp"
+                    android:layout_width="220dp"
+                    android:layout_height="44dp"
                     android:text="Change Password"
+                    android:layout_marginTop="10dp"
                     app:backgroundTint="#838383"
                     app:layout_constraintBottom_toTopOf="@+id/updateButton"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.152"
+                    app:layout_constraintHorizontal_bias="0.136"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/emailTextView"
-                    app:layout_constraintVertical_bias="0.089" />
+                    app:layout_constraintVertical_bias="0.096" />
+
+                <Button
+                    android:id="@+id/deleteButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+
+                    android:text="Delete Account"
+                    app:layout_constraintBottom_toBottomOf="@+id/profileImageView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/updateButton"
+                    app:layout_constraintVertical_bias="0.193" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

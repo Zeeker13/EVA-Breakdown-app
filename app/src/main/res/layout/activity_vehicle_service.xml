@@ -21,7 +21,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButon"
+        android:id="@+id/imageButongas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
@@ -73,7 +73,7 @@
         app:layout_constraintVertical_bias="0.405" />
 
     <ImageButton
-        android:id="@+id/imageButto"
+        android:id="@+id/garagebtn"
         android:layout_width="101dp"
         android:layout_height="105dp"
         android:background="#FFFFFF"

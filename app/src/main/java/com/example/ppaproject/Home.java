@@ -24,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
-
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
@@ -35,7 +34,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     private ImageButton recoverBut;
     private ImageButton emergencyButton;
 
-    private DatabaseReference familyMemberRef; // Firebase database reference for family members
+    private DatabaseReference familyMemberRef;
     private static final int CALL_PERMISSION_REQUEST_CODE = 1;
     private String phoneNumber;
 
@@ -76,14 +75,19 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.imageButton4) {
-            showNearbyHospitals();
-        } else if (v.getId() == R.id.vehicleSbt) {
-            navigateToVehicleService();
-        } else if (v.getId() == R.id.Rvehbt) {
-            showNearbyGarage();
-        } else if (v.getId() == R.id.emerbt) {
-            retrieveFamilyMemberPhoneNumber();
+        switch (v.getId()) {
+            case R.id.imageButton4:
+                showNearbyHospitals();
+                break;
+            case R.id.vehicleSbt:
+                navigateToVehicleService();
+                break;
+            case R.id.Rvehbt:
+                showNearbyGarage();
+                break;
+            case R.id.emerbt:
+                retrieveFamilyMemberPhoneNumber();
+                break;
         }
     }
 
