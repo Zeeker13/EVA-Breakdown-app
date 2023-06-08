@@ -24,6 +24,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,7 +43,6 @@ import org.json.JSONObject;
 
 import com.google.android.gms.location.LocationServices;
 import android.telephony.SmsManager;
-
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
 
@@ -81,7 +82,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         // Initialize the Firebase database reference
-        familyMemberRef = FirebaseDatabase.getInstance().getReference().child("users").child("JDvsmzjkGxaNZSm3yTjfKjj2VTi1");
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String usersId = currentUser.getUid();
+            familyMemberRef = FirebaseDatabase.getInstance().getReference().child("users").child(usersId);
+        }
 
         healthButton = findViewById(R.id.imageButton4);
         healthButton.setOnClickListener(this);
@@ -135,22 +140,24 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void retrieveFamilyMemberPhoneNumber() {
-        familyMemberRef.child("firstTrusteePhoneNumber").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    phoneNumber = dataSnapshot.getValue(String.class);
-                    getCurrentLocation();
-                } else {
-                    Toast.makeText(Home.this, "Family member not found", Toast.LENGTH_SHORT).show();
+        if (familyMemberRef != null) {
+            familyMemberRef.child("firstTrusteePhoneNumber").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        phoneNumber = dataSnapshot.getValue(String.class);
+                        getCurrentLocation();
+                    } else {
+                        Toast.makeText(Home.this, "Family member not found", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Home.this, "Error retrieving family member", Toast.LENGTH_SHORT).show();
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(Home.this, "Error retrieving family member", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     private void getCurrentLocation() {
