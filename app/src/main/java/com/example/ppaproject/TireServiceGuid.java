@@ -34,6 +34,15 @@ public class TireServiceGuid extends AppCompatActivity {
             }
         });
 
+        Button myButton4 = findViewById(R.id.customguid);
+        myButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TireServiceGuid.this, CustomguidDisplay.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

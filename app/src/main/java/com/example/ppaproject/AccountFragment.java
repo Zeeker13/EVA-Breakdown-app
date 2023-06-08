@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.tasks.Task;
@@ -122,6 +124,9 @@ public class AccountFragment extends Fragment {
                     // Update the "firstTrusteePhoneNumber" value in the userRef
                     userRef.child("firstTrusteePhoneNumber").setValue(newTrusteenumber);
                 }
+
+
+                Toast.makeText(getActivity(), "Update successful", Toast.LENGTH_SHORT).show();
 
             }
         });
